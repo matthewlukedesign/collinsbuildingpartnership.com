@@ -1,0 +1,10 @@
+.slide-enter-active,
+.slide-leave-active {
+  @apply transition-all duration-1000 opacity-100;
+  max-height: 10000px;
+}
+
+.slide-enter,
+.slide-leave-to {
+  @apply max-h-0 opacity-0;
+}

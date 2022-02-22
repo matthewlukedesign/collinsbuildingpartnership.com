@@ -1,0 +1,13 @@
+@import 'partials/typography';
+@import 'partials/transitions';
+
+body {
+  @apply bg-black text-white;
+}
+
+html,
+body,
+#__nuxt,
+#__layout {
+  @apply h-full;
+}

@@ -1,0 +1,15 @@
+@font-face {
+  font-family: 'ABC Normal';
+  src: url('~/assets/fonts/ABCNormal.woff2') format('woff2'),
+    url('~/assets/fonts/ABCNormal.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+}
+
+html {
+  font-size: 2vw;
+}
+
+body {
+  @apply font-body antialiased leading-tight;
+}
