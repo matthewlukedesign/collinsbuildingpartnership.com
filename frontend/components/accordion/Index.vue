@@ -1,7 +1,7 @@
 <template>
   <div :class="increment ? 'increment' : ''">
     <header
-      class="flex cursor-pointer justify-between leading-none items-center pb-2 border-b border-current text-3xl"
+      class="flex cursor-pointer justify-between leading-none items-center pb-2 border-b border-current text-2xl md:text-3xl"
       @click="SET_ACTIVE(id)"
     >
       <span class="flex">{{ title }}</span>
@@ -75,7 +75,7 @@
             <Content :blocks="footer"></Content>
           </div>
         </div>
-        <div v-else-if="contact" class="pb-12 space-y-4 pt-4">
+        <div v-else-if="form" class="pb-12 space-y-4 pt-4">
           <Form />
           <div v-for="contact in contact.contacts" :key="contact._key">
             <span class="uppercase">{{ contact.title }}</span>
@@ -99,7 +99,7 @@ export default {
     'introduction',
     'vacancies',
     'footer',
-    'contact',
+    'form',
   ],
   computed: {
     ...mapState(['active', 'contact']),

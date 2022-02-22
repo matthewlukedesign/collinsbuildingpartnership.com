@@ -23,12 +23,7 @@
       :vacancies="vacancies"
       :footer="people.footer"
     />
-    <Accordion
-      :increment="true"
-      id="contact"
-      title="Contact us"
-      :contact="true"
-    />
+    <Accordion :increment="true" id="contact" title="Contact us" :form="true" />
   </div>
 </template>
 <script>
