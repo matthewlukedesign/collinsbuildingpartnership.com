@@ -42,7 +42,7 @@ export default {
       this.loading = true
       await this.$axios
         .$post('https://getform.io/f/9f1206ad-1a03-4f5e-af20-e2058cf59c02', {
-          message: `${this.name}`,
+          message: `Name: ${this.name}, Email: ${this.email}, Subject: ${this.subject}, Message: ${this.message}`,
         })
         .then(
           (response) => (
