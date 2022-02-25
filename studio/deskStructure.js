@@ -5,11 +5,10 @@ import Emoji from "a11y-react-emoji";
 const About = () => <Emoji style={{ fontSize: "2rem" }} symbol="📓" />;
 const Contact = () => <Emoji style={{ fontSize: "2rem" }} symbol="📞" />;
 
-const url = "https://cbp.vercel.app/";
+const url = "https://collinsbuilding.vercel.app/";
 
 const WebPreview = () => {
   let targetURL = url + `/?preview=true`;
-
   return (
     <iframe src={targetURL} frameBorder={0} width="1280px" height="100%" />
   );
@@ -21,7 +20,6 @@ export default () =>
     .items([
       S.listItem()
         .title("Mission")
-        .icon(About)
         .child(
           S.document()
             .schemaType("mission")
@@ -34,7 +32,6 @@ export default () =>
         ),
       S.listItem()
         .title("Settings")
-        .icon(About)
         .child(
           S.document()
             .schemaType("settings")
@@ -56,7 +53,6 @@ export default () =>
               // Add the first list item
               S.listItem()
                 .title("Info")
-                .icon(About)
                 .child(
                   S.document()
                     .schemaType("people")
@@ -77,7 +73,6 @@ export default () =>
         ),
       S.listItem()
         .title("Contact")
-        .icon(About)
         .child(
           S.document()
             .schemaType("contact")
