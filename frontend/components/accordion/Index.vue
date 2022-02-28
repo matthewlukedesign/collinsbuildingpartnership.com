@@ -2,7 +2,7 @@
   <div :class="increment ? 'increment' : ''">
     <header
       class="flex items-center justify-between pb-2 text-2xl leading-none border-b border-current cursor-pointer group md:text-3xl"
-      @click="SET_ACTIVE(id)"
+      @click="group != '' ? toggle() : SET_ACTIVE(id)"
     >
       <span class="flex">{{ title }}</span>
       <svg
@@ -18,7 +18,7 @@
       </svg>
     </header>
     <transition name="slide">
-      <div class="overflow-hidden" v-if="active == id">
+      <div class="overflow-hidden" v-if="active == id || active">
         <div class="pt-4 pb-12 space-y-4" v-if="sections">
           <div v-for="(section, index) in sections" :key="index">
             <div
@@ -90,6 +90,11 @@
 import { mapState, mapMutations } from 'vuex'
 
 export default {
+  data() {
+    return {
+      active: false,
+    }
+  },
   props: [
     'title',
     'sections',
@@ -100,12 +105,16 @@ export default {
     'vacancies',
     'footer',
     'form',
+    'group',
   ],
   computed: {
     ...mapState(['active', 'contact']),
   },
   methods: {
     ...mapMutations(['SET_ACTIVE']),
+    toggle() {
+      this.active = !this.active
+    },
   },
 }
 </script>
