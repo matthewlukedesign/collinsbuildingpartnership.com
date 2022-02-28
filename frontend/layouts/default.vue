@@ -10,7 +10,7 @@
         :class="active ? 'opacity-0 delay-0' : 'delay-1000'"
       />
 
-      <Nuxt class="pb-4 mt-auto md:mt-0 md:pb-0" />
+      <Nuxt class="pb-2 mt-auto md:mt-0 md:pb-0" />
       <LayoutFooter class="hidden md:block" />
     </div>
     <div
