@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col list space-y-1">
+  <div class="flex flex-col list">
     <Accordion
       increment="true"
       id="mission"

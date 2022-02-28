@@ -1,23 +1,25 @@
 <template>
-  <main class="flex flex-col md:flex-row p-4 pb-0 h-full">
-    <div class="md:w-1/2 min-h-full flex flex-col">
+  <main class="relative flex flex-col h-full pb-0 md:min-h-full md:flex-row">
+    <div class="flex flex-col min-h-full p-3 md:p-2 md:pr-0 md:w-1/2">
       <LayoutHeader
-        class="absolute md:relative transition-all duration-300 md:opacity-100"
+        class="absolute transition-all duration-300 md:relative md:opacity-100"
         :class="active ? 'opacity-0 delay-0' : 'delay-1000'"
       />
       <SvgLogomark
-        class="block w-full h-full relative md:hidden transition-all duration-300"
+        class="relative block w-full h-full transition-all duration-300 md:hidden"
         :class="active ? 'opacity-0 delay-0' : 'delay-1000'"
       />
 
-      <Nuxt class="mt-auto md:mt-0 pb-4 md:pb-0" />
+      <Nuxt class="pb-4 mt-auto md:mt-0 md:pb-0" />
       <LayoutFooter class="hidden md:block" />
     </div>
-    <div class="hidden md:block md:w-1/2 h-full pl-12 relative text-xs">
+    <div
+      class="sticky top-0 hidden h-screen p-3 pt-4 pl-12 mb-auto text-xs md:block md:w-1/2"
+    >
       <div class="absolute md:w-7/12">
         <Content :blocks="settings.description" />
       </div>
-      <SvgLogomark class="block w-full h-full relative" />
+      <SvgLogomark class="relative block w-full h-full" />
     </div>
   </main>
 </template>

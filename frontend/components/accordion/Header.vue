@@ -1,7 +1,7 @@
 <template>
   <div class="increment">
     <header
-      class="flex justify-between leading-none items-center pb-2 border-b border-current text-2xl md:text-3xl"
+      class="flex items-center justify-between pb-1 text-2xl leading-none border-b border-current md:text-3xl"
     >
       <span class="flex">{{ title }}</span>
     </header>
