@@ -1,19 +1,19 @@
 <template>
   <div class="increment">
     <header
-      class="flex items-center justify-between pb-2 text-2xl leading-none border-b border-current cursor-pointer md:text-3xl"
+      class="flex items-center justify-between pb-2 text-2xl leading-none border-b border-current cursor-pointer group md:text-3xl"
       @click="SET_ACTIVE(id)"
     >
       <span class="flex">{{ title }}</span>
       <svg
-        class="w-4 h-auto mt-2 transition-opacity duration-300 fill-current text-red"
-        :class="id == active ? 'opacity-100' : 'opacity-0'"
-        viewBox="0 0 20 20"
+        class="h-auto mt-2 transition-opacity duration-300 opacity-0 fill-current w-7 text-red group-hover:opacity-100"
+        :class="id == active ? 'opacity-100' : ''"
+        viewBox="0 0 9 9"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          d="M10 19.5C15.2467 19.5 19.5 15.2467 19.5 10C19.5 4.75329 15.2467 0.5 10 0.5C4.75329 0.5 0.5 4.75329 0.5 10C0.5 15.2467 4.75329 19.5 10 19.5Z"
+          d="M8.49597 4.604L4.49997 8.204L0.503971 4.604L0.503971 3.2L3.98397 6.404L3.98397 0.0439985L4.99197 0.0439986L4.99197 6.428L8.49597 3.2L8.49597 4.604Z"
         />
       </svg>
     </header>

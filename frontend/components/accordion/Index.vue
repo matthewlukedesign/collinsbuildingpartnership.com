@@ -1,13 +1,13 @@
 <template>
   <div :class="increment ? 'increment' : ''">
     <header
-      class="flex items-center justify-between pb-2 text-2xl leading-none border-b border-current cursor-pointer md:text-3xl"
+      class="flex items-center justify-between pb-2 text-2xl leading-none border-b border-current cursor-pointer group md:text-3xl"
       @click="SET_ACTIVE(id)"
     >
       <span class="flex">{{ title }}</span>
       <svg
-        class="w-4 h-auto mt-2 transition-opacity duration-300 fill-current text-red"
-        :class="id == active ? 'opacity-100' : 'opacity-0'"
+        class="w-6 h-auto mt-2 transition-opacity duration-300 opacity-0 fill-current text-red group-hover:opacity-100"
+        :class="id == active ? 'opacity-100' : ''"
         viewBox="0 0 20 20"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
