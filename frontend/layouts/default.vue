@@ -1,5 +1,7 @@
 <template>
-  <main class="relative flex flex-col h-full pb-0 md:min-h-full md:flex-row">
+  <main
+    class="relative flex flex-col h-full pb-0 md:h-auto md:min-h-full md:flex-row"
+  >
     <div class="flex flex-col min-h-full p-3 md:p-2 md:pr-0 md:w-1/2">
       <LayoutHeader
         class="absolute transition-all duration-300 md:relative md:opacity-100"

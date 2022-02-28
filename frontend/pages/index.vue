@@ -6,15 +6,13 @@
       :title="mission.title"
       :sections="mission.sections"
     />
-    <AccordionHeader title="Services" v-if="services.length" />
-    <Accordion
-      :increment="false"
-      v-for="service in services"
-      :key="service._id"
-      :id="service._id"
-      :title="service.title"
-      :sections="service.sections"
+    <AccordionGroup
+      title="Services"
+      v-if="services.length"
+      :accordions="services"
+      id="services"
     />
+
     <Accordion
       :increment="true"
       id="people"
@@ -45,7 +43,7 @@ export default {
   }
   .increment {
     counter-increment: list;
-    header {
+    > header {
       span {
         &:before {
           content: '0' counter(list) '.';

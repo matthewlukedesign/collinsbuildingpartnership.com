@@ -1,12 +1,12 @@
 <template>
   <div :class="increment ? 'increment' : ''">
     <header
-      class="flex cursor-pointer justify-between leading-none items-center pb-2 border-b border-current text-2xl md:text-3xl"
+      class="flex items-center justify-between pb-2 text-2xl leading-none border-b border-current cursor-pointer md:text-3xl"
       @click="SET_ACTIVE(id)"
     >
       <span class="flex">{{ title }}</span>
       <svg
-        class="w-4 h-auto mt-2 fill-current text-red transition-opacity duration-300"
+        class="w-4 h-auto mt-2 transition-opacity duration-300 fill-current text-red"
         :class="id == active ? 'opacity-100' : 'opacity-0'"
         viewBox="0 0 20 20"
         fill="none"
@@ -19,7 +19,7 @@
     </header>
     <transition name="slide">
       <div class="overflow-hidden" v-if="active == id">
-        <div class="pb-12 space-y-4 pt-4" v-if="sections">
+        <div class="pt-4 pb-12 space-y-4" v-if="sections">
           <div v-for="(section, index) in sections" :key="index">
             <div
               v-if="section._type == 'images'"
@@ -38,14 +38,14 @@
         </div>
         <div
           v-else-if="introduction || footer || vacancies"
-          class="pb-12 space-y-4 pt-4"
+          class="pt-4 pb-12 space-y-4"
         >
           <div v-if="introduction">
             <Content :blocks="introduction"></Content>
           </div>
           <div v-if="vacancies">
             <div
-              class="flex pt-1 relative border-b border-current"
+              class="relative flex pt-1 border-b border-current"
               :class="
                 vacancy.link
                   ? 'group hover:text-red transition duration-300'
@@ -58,13 +58,13 @@
                 :href="vacancy.link"
                 v-if="vacancy.link"
                 target="_blank"
-                class="absolute w-full h-full block"
+                class="absolute block w-full h-full"
               ></a>
-              <span class="uppercase w-7/12">{{ vacancy.title }}</span>
-              <span class="w-5/12 flex justify-between"
+              <span class="w-7/12 uppercase">{{ vacancy.title }}</span>
+              <span class="flex justify-between w-5/12"
                 >{{ vacancy.location }}
                 <figure
-                  class="text-red group-hover:text-white transition duration-300"
+                  class="transition duration-300 text-red group-hover:text-white"
                 >
                   ↗
                 </figure>
@@ -75,7 +75,7 @@
             <Content :blocks="footer"></Content>
           </div>
         </div>
-        <div v-else-if="form" class="pb-12 space-y-4 pt-4">
+        <div v-else-if="form" class="pt-4 pb-12 space-y-4">
           <Form />
           <div v-for="contact in contact.contacts" :key="contact._key">
             <span class="uppercase">{{ contact.title }}</span>
