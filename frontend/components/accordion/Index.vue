@@ -1,7 +1,7 @@
 <template>
   <div :class="increment ? 'increment' : ''">
     <header
-      class="flex items-center justify-between pb-2 text-2xl leading-none border-b border-current cursor-pointer group md:text-3xl"
+      class="flex items-center justify-between pb-1 text-2xl leading-none border-b border-current cursor-pointer group md:text-3xl"
       @click="group != '' ? toggle() : SET_ACTIVE(id)"
     >
       <span class="flex">{{ title }}</span>
@@ -18,7 +18,10 @@
       </svg>
     </header>
     <transition name="slide">
-      <div class="overflow-hidden" v-if="active == id || active">
+      <div
+        class="overflow-hidden text-sm leading-tight"
+        v-if="active == id || active"
+      >
         <div class="pt-4 pb-12 space-y-4" v-if="sections">
           <div v-for="(section, index) in sections" :key="index">
             <div

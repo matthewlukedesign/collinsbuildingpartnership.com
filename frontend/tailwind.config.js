@@ -10,7 +10,8 @@ module.exports = {
         red: '#FF3600',
       },
       fontSize: {
-        xs: '0.65rem',
+        xs: '0.6rem',
+        '3xl': '1.9475rem',
       },
     },
   },

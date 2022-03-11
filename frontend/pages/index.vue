@@ -1,34 +1,41 @@
 <template>
-  <div class="flex flex-col list">
-    <Accordion
-      increment="true"
-      id="mission"
-      :title="mission.title"
-      :sections="mission.sections"
-    />
-    <AccordionGroup
-      title="Services"
-      v-if="services.length"
-      :accordions="services"
-      id="services"
-    />
+  <div>
+    <div class="flex flex-col list">
+      <Accordion
+        increment="true"
+        id="mission"
+        :title="mission.title"
+        :sections="mission.sections"
+      />
+      <AccordionGroup
+        title="Services"
+        v-if="services.length"
+        :accordions="services"
+        id="services"
+      />
 
-    <Accordion
-      :increment="true"
-      id="people"
-      title="People & Careers"
-      :introduction="people.introduction"
-      :vacancies="vacancies"
-      :footer="people.footer"
-    />
-    <Accordion :increment="true" id="contact" title="Contact us" :form="true" />
+      <Accordion
+        :increment="true"
+        id="people"
+        title="People & Careers"
+        :introduction="people.introduction"
+        :vacancies="vacancies"
+        :footer="people.footer"
+      />
+      <Accordion
+        :increment="true"
+        id="contact"
+        title="Contact us"
+        :form="true"
+      />
+    </div>
   </div>
 </template>
 <script>
 import { mapState, mapMutations } from 'vuex'
 export default {
   computed: {
-    ...mapState(['mission', 'services', 'people', 'vacancies']),
+    ...mapState(['mission', 'settings', 'services', 'people', 'vacancies']),
   },
 }
 </script>
@@ -38,7 +45,7 @@ export default {
   > div {
     @apply relative;
     header {
-      @apply pl-14;
+      @apply pl-20;
     }
   }
   .increment {

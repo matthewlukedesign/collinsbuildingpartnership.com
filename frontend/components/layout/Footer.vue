@@ -1,5 +1,5 @@
 <template>
-  <footer class="pt-12 mt-auto pb-4">
+  <footer class="pt-12 pb-4 mt-auto">
     <span class="text-2xl md:text-3xl text-red">From the Ground Up</span>
     <nav class="mt-12 text-xs footer">
       <Content :blocks="settings.footer"></Content>
