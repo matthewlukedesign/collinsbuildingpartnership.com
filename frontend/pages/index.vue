@@ -22,6 +22,12 @@
         :vacancies="vacancies"
         :footer="people.footer"
       />
+      <AccordionGroup
+        title="Projects"
+        v-if="projects.length"
+        :accordions="projects"
+        id="projects"
+      />
       <Accordion
         :increment="true"
         id="contact"
@@ -35,7 +41,14 @@
 import { mapState, mapMutations } from 'vuex'
 export default {
   computed: {
-    ...mapState(['mission', 'settings', 'services', 'people', 'vacancies']),
+    ...mapState([
+      'mission',
+      'settings',
+      'services',
+      'projects',
+      'people',
+      'vacancies',
+    ]),
   },
 }
 </script>

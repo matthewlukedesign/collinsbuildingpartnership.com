@@ -2,6 +2,7 @@ export const state = () => ({
   mission: [],
   settings: [],
   services: [],
+  projects: [],
   people: [],
   contact: [],
   people: [],
@@ -17,6 +18,9 @@ export const mutations = {
   },
   SET_SERVICES(state, services) {
     state.services = services
+  },
+  SET_PROJECTS(state, projects) {
+    state.projects = projects
   },
   SET_VACANCIES(state, vacancies) {
     state.vacancies = vacancies
@@ -51,6 +55,10 @@ export const actions = {
     query = groq`*[_type == "service" ] {_id, title, sections[] {_type == 'content' => {_type, text}, _type == 'images' => {_type, images[] { "src" : asset._ref, "sizes" : {"width" : asset->metadata.dimensions.width, "height" : asset->metadata.dimensions.height}}}}} | order(_updatedAt desc)`
     const services = await this.$sanity.fetch(query)
     commit('SET_SERVICES', services)
+
+    query = groq`*[_type == "project" ] {_id, title, sections[] {_type == 'content' => {_type, text}, _type == 'images' => {_type, images[] { "src" : asset._ref, "sizes" : {"width" : asset->metadata.dimensions.width, "height" : asset->metadata.dimensions.height}}}}} | order(_updatedAt desc)`
+    const projects = await this.$sanity.fetch(query)
+    commit('SET_PROJECTS', projects)
 
     query = groq`*[_type == "vacancy" ] {title, location, link} | order(_updatedAt desc)`
     const vacancies = await this.$sanity.fetch(query)

@@ -11,6 +11,7 @@ import service from "./service";
 import people from "./people";
 import vacancy from "./vacancy";
 import contact from "./contact";
+import project from "./project";
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -27,5 +28,6 @@ export default createSchema({
     people,
     vacancy,
     contact,
+    project,
   ]),
 });
