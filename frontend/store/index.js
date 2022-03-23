@@ -52,15 +52,15 @@ export const actions = {
     const settings = await this.$sanity.fetch(query)
     commit('SET_SETTINGS', settings)
 
-    query = groq`*[_type == "service" ] {_id, title, sections[] {_type == 'content' => {_type, text}, _type == 'images' => {_type, images[] { "src" : asset._ref, "sizes" : {"width" : asset->metadata.dimensions.width, "height" : asset->metadata.dimensions.height}}}}} | order(_updatedAt desc)`
+    query = groq`*[_type == "service" ] {_id, title, sections[] {_type == 'content' => {_type, text}, _type == 'images' => {_type, images[] { "src" : asset._ref, "sizes" : {"width" : asset->metadata.dimensions.width, "height" : asset->metadata.dimensions.height}}}}} | order(order asc)`
     const services = await this.$sanity.fetch(query)
     commit('SET_SERVICES', services)
 
-    query = groq`*[_type == "project" ] {_id, title, sections[] {_type == 'content' => {_type, text}, _type == 'images' => {_type, images[] { "src" : asset._ref, "sizes" : {"width" : asset->metadata.dimensions.width, "height" : asset->metadata.dimensions.height}}}}} | order(_updatedAt desc)`
+    query = groq`*[_type == "project" ] {_id, title, sections[] {_type == 'content' => {_type, text}, _type == 'images' => {_type, images[] { "src" : asset._ref, "sizes" : {"width" : asset->metadata.dimensions.width, "height" : asset->metadata.dimensions.height}}}}} | order(order asc)`
     const projects = await this.$sanity.fetch(query)
     commit('SET_PROJECTS', projects)
 
-    query = groq`*[_type == "vacancy" ] {title, location, link} | order(_updatedAt desc)`
+    query = groq`*[_type == "vacancy" ] {title, location, link} | order(order desc)`
     const vacancies = await this.$sanity.fetch(query)
     commit('SET_VACANCIES', vacancies)
 

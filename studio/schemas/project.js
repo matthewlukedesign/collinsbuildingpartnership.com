@@ -13,5 +13,11 @@ export default {
       title: "Sections",
       type: "sections",
     },
+    {
+      name: "order",
+      title: "Order",
+      type: "number",
+      hidden: true,
+    },
   ],
 };

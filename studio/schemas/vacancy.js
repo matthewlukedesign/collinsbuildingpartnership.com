@@ -18,5 +18,11 @@ export default {
       title: "Link",
       type: "url",
     },
+    {
+      name: "order",
+      title: "Order",
+      type: "number",
+      hidden: true,
+    },
   ],
 };
