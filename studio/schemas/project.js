@@ -9,9 +9,26 @@ export default {
       type: "string",
     },
     {
-      name: "sections",
-      title: "Sections",
-      type: "sections",
+      name: "description",
+      title: "Description",
+      type: "blockContent",
+    },
+    {
+      name: "images",
+      title: "Images",
+      type: "array",
+      of: [
+        {
+          name: "image",
+          title: "Image",
+          type: "image",
+        },
+        {
+          name: "video",
+          title: "Video",
+          type: "mux.video",
+        },
+      ],
     },
     {
       name: "order",

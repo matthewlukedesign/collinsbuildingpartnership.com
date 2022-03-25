@@ -2,12 +2,12 @@
   <div :class="increment ? 'increment' : ''">
     <header
       class="flex items-center justify-between pb-1 text-2xl leading-none border-b border-current cursor-pointer group md:text-3xl"
-      @click="group != '' ? toggle() : SET_ACTIVE(id)"
+      @click="group ? SET_SUB_ACTIVE(id) : SET_ACTIVE(id)"
     >
       <span class="flex">{{ title }}</span>
       <svg
         class="w-6 h-auto mt-2 transition-opacity duration-300 opacity-0 fill-current text-red group-hover:opacity-100"
-        :class="id == active ? 'opacity-100' : ''"
+        :class="id == active || id == subActive ? 'opacity-100' : ''"
         viewBox="0 0 20 20"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -20,7 +20,7 @@
     <transition name="slide">
       <div
         class="overflow-hidden text-sm leading-tight"
-        v-if="active == id || active"
+        v-if="group ? subActive == id : active == id"
       >
         <div class="pt-4 pb-12 space-y-4" v-if="sections">
           <div v-for="(section, index) in sections" :key="index">
@@ -31,7 +31,8 @@
               "
             >
               <div v-for="(image, index) in section.images" :key="index">
-                <MediaImage :image="image" />
+                <MediaImage :image="image" v-if="image._type == 'image'" />
+                <MediaVideo :id="image.video" :aspect="image.aspect" v-else />
               </div>
             </div>
             <div v-else>
@@ -93,11 +94,6 @@
 import { mapState, mapMutations } from 'vuex'
 
 export default {
-  data() {
-    return {
-      active: false,
-    }
-  },
   props: [
     'title',
     'sections',
@@ -111,10 +107,10 @@ export default {
     'group',
   ],
   computed: {
-    ...mapState(['active', 'contact']),
+    ...mapState(['active', 'contact', 'subActive']),
   },
   methods: {
-    ...mapMutations(['SET_ACTIVE']),
+    ...mapMutations(['SET_ACTIVE', 'SET_SUB_ACTIVE']),
     toggle() {
       this.active = !this.active
     },

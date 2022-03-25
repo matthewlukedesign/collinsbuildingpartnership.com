@@ -7,6 +7,7 @@ export const state = () => ({
   contact: [],
   people: [],
   active: false,
+  subActive: false,
 })
 
 export const mutations = {
@@ -38,13 +39,20 @@ export const mutations = {
       state.active = active
     }
   },
+  SET_SUB_ACTIVE(state, active) {
+    if (state.subActive == active) {
+      state.subActive = false
+    } else {
+      state.subActive = active
+    }
+  },
 }
 
 import { groq } from '@nuxtjs/sanity'
 
 export const actions = {
   async nuxtServerInit({ commit }) {
-    let query = groq`*[_type == "mission" ] {title, sections[] {_type == 'content' => {_type, text}, _type == 'images' => {_type, images[] { "src" : asset._ref, "sizes" : {"width" : asset->metadata.dimensions.width, "height" : asset->metadata.dimensions.height}}}}} | order(_updatedAt desc)[0]`
+    let query = groq`*[_type == "mission" ] {title, sections[] {_type == 'content' => {_type, text}, _type == 'images' => {_type, images[] {_type == "image" => {_type, "src" : asset._ref, "sizes" : {"width" : asset->metadata.dimensions.width, "height" : asset->metadata.dimensions.height}},  _type == "video" => {"video" : asset->playbackId, "aspect" : asset->data.aspect_ratio}}}}} | order(_updatedAt desc)[0]`
     const mission = await this.$sanity.fetch(query)
     commit('SET_MISSION', mission)
 
@@ -52,11 +60,11 @@ export const actions = {
     const settings = await this.$sanity.fetch(query)
     commit('SET_SETTINGS', settings)
 
-    query = groq`*[_type == "service" ] {_id, title, sections[] {_type == 'content' => {_type, text}, _type == 'images' => {_type, images[] { "src" : asset._ref, "sizes" : {"width" : asset->metadata.dimensions.width, "height" : asset->metadata.dimensions.height}}}}} | order(order asc)`
+    query = groq`*[_type == "service" ] {_id, title, sections[] {_type == 'content' => {_type, text}, _type == 'images' => {_type, images[] {_type == "image" => {_type, "src" : asset._ref, "sizes" : {"width" : asset->metadata.dimensions.width, "height" : asset->metadata.dimensions.height}},  _type == "video" => {"video" : asset->playbackId, "aspect" : asset->data.aspect_ratio}}}}} | order(order asc)`
     const services = await this.$sanity.fetch(query)
     commit('SET_SERVICES', services)
 
-    query = groq`*[_type == "project" ] {_id, title, sections[] {_type == 'content' => {_type, text}, _type == 'images' => {_type, images[] { "src" : asset._ref, "sizes" : {"width" : asset->metadata.dimensions.width, "height" : asset->metadata.dimensions.height}}}}} | order(order asc)`
+    query = groq`*[_type == "project" ] {_id, title, description, images[] { _type == "image" => {_type, "src" : asset._ref, "sizes" : {"width" : asset->metadata.dimensions.width, "height" : asset->metadata.dimensions.height}},  _type == "video" => {"video" : asset->playbackId, "aspect" : asset->data.aspect_ratio}}} | order(order asc)`
     const projects = await this.$sanity.fetch(query)
     commit('SET_PROJECTS', projects)
 

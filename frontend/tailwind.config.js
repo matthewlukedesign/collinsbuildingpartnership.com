@@ -5,12 +5,14 @@ module.exports = {
     extend: {
       fontFamily: {
         body: ['ABC Normal'],
+        mono: ['BB Studio Mono'],
       },
       colors: {
         red: '#FF3600',
       },
       fontSize: {
-        xs: '0.6rem',
+        xs: '0.55rem',
+        sm: '0.8rem',
         '3xl': '1.9475rem',
       },
     },

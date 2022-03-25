@@ -4,7 +4,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'CBP',
+    title: 'Collins Building Partnership',
     htmlAttrs: {
       lang: 'en',
     },
@@ -14,14 +14,17 @@ export default {
       { hid: 'description', name: 'description', content: '' },
       { name: 'format-detection', content: 'telephone=no' },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.svg' }],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: ['~/assets/scss/main.scss'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ['~/plugins/preview.client.js'],
+  plugins: [
+    '~/plugins/preview.client.js',
+    { src: '@/plugins/vue-awesome-swiper', mode: 'client' },
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,

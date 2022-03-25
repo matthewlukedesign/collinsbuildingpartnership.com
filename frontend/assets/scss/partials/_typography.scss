@@ -6,6 +6,14 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'BB Studio Mono';
+  src: url('~/assets/fonts/BBStudioProMono.woff2') format('woff2'),
+    url('~/assets/fonts/BBStudioProMono.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 html {
   font-size: 100%;
 }

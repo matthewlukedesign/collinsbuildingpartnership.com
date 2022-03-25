@@ -13,7 +13,13 @@
         :accordions="services"
         id="services"
       />
-
+      <AccordionProjects
+        :increment="true"
+        title="Projects"
+        v-if="projects.length"
+        :projects="projects"
+        id="projects"
+      />
       <Accordion
         :increment="true"
         id="people"
@@ -22,12 +28,7 @@
         :vacancies="vacancies"
         :footer="people.footer"
       />
-      <AccordionGroup
-        title="Projects"
-        v-if="projects.length"
-        :accordions="projects"
-        id="projects"
-      />
+
       <Accordion
         :increment="true"
         id="contact"
