@@ -1,7 +1,10 @@
+import { GrTools } from "react-icons/gr";
+
 export default {
   name: "service",
   title: "Services",
   type: "document",
+  icon: GrTools,
   fields: [
     {
       name: "title",

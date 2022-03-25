@@ -1,9 +1,10 @@
 import S from "@sanity/desk-tool/structure-builder";
 import React from "react";
-
-import Emoji from "a11y-react-emoji";
-const About = () => <Emoji style={{ fontSize: "2rem" }} symbol="📓" />;
-const Contact = () => <Emoji style={{ fontSize: "2rem" }} symbol="📞" />;
+import { GrCircleInformation } from "react-icons/gr";
+import { BiCog } from "react-icons/bi";
+import { BsFillPeopleFill } from "react-icons/bs";
+import { GrDocumentText } from "react-icons/gr";
+import { AiOutlinePhone } from "react-icons/ai";
 
 const url = "https://collinsbuilding.vercel.app/";
 
@@ -20,6 +21,7 @@ export default () =>
     .items([
       S.listItem()
         .title("Mission")
+        .icon(GrCircleInformation)
         .child(
           S.document()
             .schemaType("mission")
@@ -32,6 +34,7 @@ export default () =>
         ),
       S.listItem()
         .title("Settings")
+        .icon(BiCog)
         .child(
           S.document()
             .schemaType("settings")
@@ -45,6 +48,7 @@ export default () =>
       S.listItem()
         // Give it a title
         .title("People & Careers")
+        .icon(BsFillPeopleFill)
         .child(
           // Make a list in the second pane called Portfolio
           S.list()
@@ -53,6 +57,7 @@ export default () =>
               // Add the first list item
               S.listItem()
                 .title("Info")
+                .icon(BsFillPeopleFill)
                 .child(
                   S.document()
                     .schemaType("people")
@@ -65,6 +70,7 @@ export default () =>
                 ),
               S.listItem()
                 .title("Vacancies")
+                .icon(GrDocumentText)
                 .schemaType("vacancy")
                 // When you open this list item, list out the documents
                 // of the type category"
@@ -73,6 +79,7 @@ export default () =>
         ),
       S.listItem()
         .title("Contact")
+        .icon(AiOutlinePhone)
         .child(
           S.document()
             .schemaType("contact")
@@ -86,6 +93,7 @@ export default () =>
       ...S.documentTypeListItems()
         .filter((listItem) => !["mission"].includes(listItem.getId()))
         .filter((listItem) => !["people"].includes(listItem.getId()))
+        .filter((listItem) => !["vacancy"].includes(listItem.getId()))
         .filter((listItem) => !["contact"].includes(listItem.getId()))
         .filter((listItem) => !["settings"].includes(listItem.getId())),
     ]);

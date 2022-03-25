@@ -1,7 +1,10 @@
+import { BsBuilding } from "react-icons/bs";
+
 export default {
   name: "project",
   title: "Projects",
   type: "document",
+  icon: BsBuilding,
   fields: [
     {
       name: "title",
