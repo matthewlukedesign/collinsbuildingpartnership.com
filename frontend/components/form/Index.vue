@@ -11,11 +11,11 @@
       <input type="email" autocomplete="Email" placeholder="Email*" required />
       <input type="text" class="col-span-2" required placeholder="Subject*" />
       <textarea placeholder="Message*" class="col-span-2" required />
-      <footer class="col-span-2 flex justify-end">
+      <footer class="flex justify-end col-span-2">
         <button
           @click="send"
           v-if="!loading"
-          class="rounded-full bg-red uppercase w-auto p-2 px-4 cursor-pointer leading-none"
+          class="w-auto p-2 px-4 leading-none uppercase rounded-full cursor-pointer bg-red"
         >
           Send
         </button>
@@ -59,7 +59,7 @@ export default {
 <style scoped lang="scss">
 input,
 textarea {
-  @apply p-1 appearance-none rounded-none text-black;
+  @apply p-0.5 appearance-none rounded-none text-black;
   &:focus {
     @apply outline-none;
   }

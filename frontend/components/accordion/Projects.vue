@@ -19,8 +19,8 @@
     </header>
     <transition name="slide">
       <div class="overflow-hidden text-sm leading-tight" v-if="active == id">
-        <div class="pt-4 pb-12 space-y-4">
-          <section v-for="project in projects" :key="project._id">
+        <div class="pt-4 pb-12 space-y-4 divide-y divide-white">
+          <section v-for="project in projects" :key="project._id" class="pt-4">
             <Slider :project="project" />
           </section>
         </div>

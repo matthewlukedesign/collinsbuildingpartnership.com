@@ -28,11 +28,11 @@
         :vacancies="vacancies"
         :footer="people.footer"
       />
-
       <Accordion
         :increment="true"
         id="contact"
         title="Contact us"
+        :hideBorder="true"
         :form="true"
       />
     </div>

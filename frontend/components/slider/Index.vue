@@ -41,9 +41,17 @@ export default {
         autoplay: {
           delay: 5000,
         },
+        mousewheel: {
+          releaseOnEdges: true,
+        },
         slidesPerView: 1,
       },
     }
+  },
+  methods: {
+    onSlideChange(swiper) {
+      this.current = swiper.activeIndex + 1
+    },
   },
   props: ['project'],
 }

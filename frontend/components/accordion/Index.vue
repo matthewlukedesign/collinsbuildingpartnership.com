@@ -1,7 +1,8 @@
 <template>
   <div :class="increment ? 'increment' : ''">
     <header
-      class="flex items-center justify-between pb-1 text-2xl leading-none border-b border-current cursor-pointer group md:text-3xl"
+      class="flex items-center justify-between pb-1 text-2xl leading-none border-current cursor-pointer group md:text-3xl"
+      :class="!hideBorder ? 'border-b' : ''"
       @click="group ? SET_SUB_ACTIVE(id) : SET_ACTIVE(id)"
     >
       <span class="flex">{{ title }}</span>
@@ -105,6 +106,7 @@ export default {
     'footer',
     'form',
     'group',
+    'hideBorder',
   ],
   computed: {
     ...mapState(['active', 'contact', 'subActive']),

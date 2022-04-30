@@ -1,8 +1,19 @@
 <template>
   <header class="mb-12 leading-none">
-    <h1 class="hidden md:block text-2xl md:text-3xl">
+    <h1
+      class="hidden text-2xl cursor-pointer md:block md:text-3xl"
+      @click="SET_ACTIVE(false)"
+    >
       Collins Building Partnership
     </h1>
-    <h1 class="md:hidden text-6xl md:text-3xl">CBP</h1>
+    <h1 class="text-6xl md:hidden md:text-3xl">CBP</h1>
   </header>
 </template>
+<script>
+import { mapMutations } from 'vuex'
+export default {
+  methods: {
+    ...mapMutations(['SET_ACTIVE', 'SET_SUB_ACTIVE']),
+  },
+}
+</script>
