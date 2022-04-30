@@ -38,9 +38,6 @@ export default {
     return {
       current: 1,
       swiperOptions: {
-        autoplay: {
-          delay: 5000,
-        },
         mousewheel: {
           releaseOnEdges: true,
         },

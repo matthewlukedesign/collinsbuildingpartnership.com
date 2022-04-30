@@ -64,7 +64,7 @@ export const actions = {
     const services = await this.$sanity.fetch(query)
     commit('SET_SERVICES', services)
 
-    query = groq`*[_type == "project" ] {_id, title, description, images[] { _type == "image" => {_type, "src" : asset._ref, "sizes" : {"width" : asset->metadata.dimensions.width, "height" : asset->metadata.dimensions.height}},  _type == "video" => {"video" : asset->playbackId, "aspect" : asset->data.aspect_ratio}}} | order(order asc)`
+    query = groq`*[_type == "project" ] {_id, title, description, images[] { _type == "image" => {_type, "src" : asset._ref, "sizes" : {"width" : asset->metadata.dimensions.width, "height" : asset->metadata.dimensions.height}},  _type == "video" => {"video" : asset->playbackId, "aspect" : asset->data.aspect_ratio}}} | order(title asc)`
     const projects = await this.$sanity.fetch(query)
     commit('SET_PROJECTS', projects)
 
