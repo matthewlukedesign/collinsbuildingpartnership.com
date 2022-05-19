@@ -11,7 +11,9 @@
         class="relative block w-full h-full transition-all duration-300 md:hidden"
         :class="active ? 'opacity-0 delay-0' : 'delay-1000'"
       />
-      <Nuxt class="pb-2 mt-auto md:min-h-screen md:-mt-20 md:pt-20 md:pb-0" />
+      <Nuxt
+        class="pb-2 mt-auto md:min-h-screen-plus md:-mt-20 md:pt-20 md:pb-0"
+      />
 
       <LayoutFooter class="hidden md:block" />
     </div>

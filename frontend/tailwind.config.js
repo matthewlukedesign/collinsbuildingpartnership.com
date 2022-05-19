@@ -10,6 +10,9 @@ module.exports = {
       colors: {
         red: '#FF3600',
       },
+      minHeight: {
+        'screen-plus': 'calc(100vh + 4rem)',
+      },
       fontSize: {
         xs: '0.5rem',
         sm: '0.8rem',
