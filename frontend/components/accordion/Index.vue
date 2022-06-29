@@ -28,7 +28,7 @@
             <div
               v-if="section._type == 'images'"
               :class="
-                section.images.length == 1 ? 'w-8/12' : 'grid grid-cols-2 gap-2'
+                section.images.length == 1 ? 'w-full' : 'grid grid-cols-2 gap-2'
               "
             >
               <div v-for="(image, index) in section.images" :key="index">
