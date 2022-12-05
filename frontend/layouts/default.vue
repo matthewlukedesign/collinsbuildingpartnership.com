@@ -1,37 +1,47 @@
 <template>
   <main
-    class="relative flex flex-col h-full pb-0 md:h-auto md:min-h-full md:flex-row"
+    class="relative flex flex-col h-full pb-0 min-h-screen-plus lg:h-auto lg:min-h-full lg:flex-row"
   >
-    <div class="flex flex-col min-h-full p-3 md:p-2 md:pr-0 md:w-1/2">
+    <div
+      class="flex flex-col h-screen p-3 lg:min-h-full lg:p-2 lg:pr-0 lg:w-1/2"
+    >
       <LayoutHeader
-        class="absolute transition-all duration-300 md:relative md:opacity-100"
+        class="absolute transition-all duration-300 lg:relative lg:opacity-100"
         :class="active ? 'opacity-0 delay-0' : 'delay-1000'"
       />
       <SvgLogomark
-        class="relative block w-full h-full transition-all duration-300 md:hidden"
+        @click.native="SET_ACTIVE(false)"
+        class="relative block w-full h-full transition-all duration-300 cursor-pointer lg:hidden"
         :class="active ? 'opacity-0 delay-0' : 'delay-1000'"
       />
       <Nuxt
-        class="pb-2 mt-auto md:min-h-screen-plus md:-mt-20 md:pt-20 md:pb-0"
+        class="pb-2 mt-auto lg:min-h-screen-plus lg:-mt-20 lg:pt-20 lg:pb-0"
       />
 
-      <LayoutFooter class="hidden md:block" />
+      <LayoutFooter class="hidden pt-24 pb-24 mt-auto lg:block" />
     </div>
+    <LayoutFooter class="absolute bottom-0 p-2 -mb-1 lg:hidden lg:relative" />
     <div
-      class="sticky top-0 hidden h-screen p-3 pt-4 pl-12 mb-auto text-xs md:block md:w-1/2"
+      class="sticky top-0 hidden h-screen p-3 pt-4 pl-12 mb-auto text-xs lg:block lg:w-1/2"
     >
-      <div class="absolute md:w-7/12">
+      <div class="absolute lg:w-7/12">
         <Content :blocks="settings.description" />
       </div>
-      <SvgLogomark class="relative block w-full h-full" />
+      <SvgLogomark
+        class="relative block w-full h-full cursor-pointer"
+        @click.native="SET_ACTIVE(false)"
+      />
     </div>
   </main>
 </template>
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapMutations } from 'vuex'
 export default {
   computed: {
     ...mapState(['settings', 'active']),
+  },
+  methods: {
+    ...mapMutations(['SET_ACTIVE', 'SET_SUB_ACTIVE']),
   },
 }
 </script>

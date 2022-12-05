@@ -1,11 +1,11 @@
 <template>
-  <footer class="pt-24 pb-24 mt-auto">
+  <footer>
     <span class="text-2xl cursor-pointer md:text-3xl text-red" @click="up"
       >From the Ground Up</span
     >
     <nav
-      class="bottom-0 mt-24 text-xs footer"
-      :class="!active && !subActive ? 'md:pb-4 md:fixed' : ''"
+      class="bottom-0 mt-4 text-xs lg:mt-24 footer"
+      :class="!active && !subActive ? 'lg:pb-4 lg:fixed' : ''"
     >
       <Content :blocks="settings.footer"></Content>
     </nav>
