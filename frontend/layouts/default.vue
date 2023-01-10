@@ -3,7 +3,7 @@
     class="relative flex flex-col h-full pb-0 tablet lg:h-auto lg:min-h-full lg:flex-row"
   >
     <div
-      class="flex flex-col h-screen p-3 lg:min-h-full lg:p-2 lg:pr-0 lg:w-1/2"
+      class="flex flex-col h-screen p-3 lg:h-auto lg:min-h-full lg:p-2 lg:pr-0 lg:w-1/2"
     >
       <LayoutHeader
         class="absolute transition-all duration-300 lg:relative lg:opacity-100"
