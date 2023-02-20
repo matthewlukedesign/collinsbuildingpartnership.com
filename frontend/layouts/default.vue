@@ -20,11 +20,11 @@
           :class="active ? 'opacity-0 delay-0' : 'delay-1000'"
         />
       </figure>
-      <Nuxt class="-my-2 lg:min-h-screen-plus lg:-mt-20 lg:pt-20 md:pb-0" />
+      <Nuxt class="-my-1 lg:min-h-screen-plus lg:-mt-20 lg:pt-20 md:pb-0" />
 
       <LayoutFooter class="hidden pt-24 pb-24 mt-auto lg:block" />
     </div>
-    <LayoutFooter class="absolute bottom-0 p-3 lg:hidden lg:relative" />
+    <LayoutFooter class="absolute bottom-0 p-3 -mb-1 lg:hidden lg:relative" />
     <div
       class="sticky top-0 hidden h-screen p-3 pt-4 pl-12 mb-auto text-xs lg:block lg:w-1/2"
     >
