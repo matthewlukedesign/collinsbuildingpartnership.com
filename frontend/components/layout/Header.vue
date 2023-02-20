@@ -6,7 +6,7 @@
     >
       Collins Building Partnership
     </h1>
-    <h1 class="text-6xl lg:hidden md:text-3xl">CBP</h1>
+    <h1 class="-my-2 text-6xl md:text-8xl lg:hidden">CBP</h1>
   </header>
 </template>
 <script>

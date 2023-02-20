@@ -50,11 +50,6 @@ export default {
 }
 </script>
 <style lang="scss">
-@screen md {
-  .tablet {
-    min-height: calc(100vh + 8rem);
-  }
-}
 @screen lg {
   .tablet {
     min-height: auto;

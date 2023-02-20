@@ -18,6 +18,12 @@ html {
   font-size: 100%;
 }
 
+@screen md {
+  html {
+    font-size: 125%;
+  }
+}
+
 @screen lg {
   html {
     font-size: 2vw;
