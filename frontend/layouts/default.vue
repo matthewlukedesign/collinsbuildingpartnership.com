@@ -17,7 +17,7 @@
         <SvgLogomark
           @click.native="SET_ACTIVE(false)"
           class="relative block w-full h-full transition-all duration-300 cursor-pointer lg:hidden"
-          :class="active ? 'opacity-0 delay-0' : 'delay-1000'"
+          :class="active ? 'opacity-0 delay-0' : ''"
         />
       </figure>
       <Nuxt class="-my-1 lg:min-h-screen-plus lg:-mt-20 lg:pt-20 md:pb-0" />
