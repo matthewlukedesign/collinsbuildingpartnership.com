@@ -8,6 +8,7 @@ export const state = () => ({
   people: [],
   active: false,
   subActive: false,
+  mobileClicked: false,
 })
 
 export const mutations = {
@@ -19,6 +20,9 @@ export const mutations = {
   },
   SET_SERVICES(state, services) {
     state.services = services
+  },
+  SET_MOBILE_CLICKED(state) {
+    state.mobileClicked = true
   },
   SET_PROJECTS(state, projects) {
     state.projects = projects

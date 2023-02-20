@@ -3,7 +3,9 @@
     <header
       class="flex items-center justify-between pb-1 text-2xl leading-none border-current cursor-pointer group md:text-3xl"
       :class="!hideBorder ? 'border-b' : ''"
-      @click="group ? SET_SUB_ACTIVE(id) : SET_ACTIVE(id)"
+      @click="
+        ;[SET_MOBILE_CLICKED(), group ? SET_SUB_ACTIVE(id) : SET_ACTIVE(id)]
+      "
     >
       <span class="flex">{{ title }}</span>
       <svg
@@ -121,10 +123,10 @@ export default {
     'hideBorder',
   ],
   computed: {
-    ...mapState(['active', 'contact', 'subActive']),
+    ...mapState(['active', 'contact', 'subActive', 'mobileClicked']),
   },
   methods: {
-    ...mapMutations(['SET_ACTIVE', 'SET_SUB_ACTIVE']),
+    ...mapMutations(['SET_ACTIVE', 'SET_SUB_ACTIVE', 'SET_MOBILE_CLICKED']),
     toggle() {
       this.active = !this.active
     },

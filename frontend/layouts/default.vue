@@ -1,26 +1,30 @@
 <template>
   <main
     class="relative flex flex-col h-full pb-0 tablet lg:h-auto lg:min-h-full lg:flex-row"
+    @click="SET_MOBILE_CLICKED()"
   >
     <div
       class="flex flex-col h-screen p-3 lg:h-auto lg:min-h-full lg:p-2 lg:pr-0 lg:w-1/2"
     >
       <LayoutHeader
         class="absolute transition-all duration-300 lg:relative lg:opacity-100"
-        :class="active ? 'opacity-0 delay-0' : 'delay-1000'"
+        :class="mobileClicked ? ' opacity-0 delay-0' : 'delay-1000'"
       />
-      <SvgLogomark
-        @click.native="SET_ACTIVE(false)"
-        class="relative block w-full h-full transition-all duration-300 cursor-pointer lg:hidden"
-        :class="active ? 'opacity-0 delay-0' : 'delay-1000'"
-      />
-      <Nuxt
-        class="pb-2 mt-auto lg:min-h-screen-plus lg:-mt-20 lg:pt-20 md:pb-0"
-      />
+      <figure
+        class="h-full transition-all duration-300 logomark"
+        :class="mobileClicked ? 'opacity-0 delay-0 active' : ''"
+      >
+        <SvgLogomark
+          @click.native="SET_ACTIVE(false)"
+          class="relative block w-full h-full transition-all duration-300 cursor-pointer lg:hidden"
+          :class="active ? 'opacity-0 delay-0' : 'delay-1000'"
+        />
+      </figure>
+      <Nuxt class="-my-2 lg:min-h-screen-plus lg:-mt-20 lg:pt-20 md:pb-0" />
 
       <LayoutFooter class="hidden pt-24 pb-24 mt-auto lg:block" />
     </div>
-    <LayoutFooter class="absolute bottom-0 p-2 -mb-1 lg:hidden lg:relative" />
+    <LayoutFooter class="absolute bottom-0 p-3 lg:hidden lg:relative" />
     <div
       class="sticky top-0 hidden h-screen p-3 pt-4 pl-12 mb-auto text-xs lg:block lg:w-1/2"
     >
@@ -38,17 +42,14 @@
 import { mapState, mapMutations } from 'vuex'
 export default {
   computed: {
-    ...mapState(['settings', 'active']),
+    ...mapState(['settings', 'active', 'mobileClicked']),
   },
   methods: {
-    ...mapMutations(['SET_ACTIVE', 'SET_SUB_ACTIVE']),
+    ...mapMutations(['SET_ACTIVE', 'SET_SUB_ACTIVE', 'SET_MOBILE_CLICKED']),
   },
 }
 </script>
 <style lang="scss">
-.tablet {
-  min-height: calc(100vh + 4rem);
-}
 @screen md {
   .tablet {
     min-height: calc(100vh + 8rem);
@@ -57,6 +58,12 @@ export default {
 @screen lg {
   .tablet {
     min-height: auto;
+  }
+}
+.logomark {
+  max-height: 2000px;
+  &.active {
+    max-height: 0px;
   }
 }
 </style>
