@@ -68,7 +68,7 @@ export const actions = {
     const projects = await this.$sanity.fetch(query)
     commit('SET_PROJECTS', projects)
 
-    query = groq`*[_type == "vacancy" ] {title, location, link} | order(order desc)`
+    query = groq`*[_type == "vacancy" ] {title, location, link, pdf} | order(order desc)`
     const vacancies = await this.$sanity.fetch(query)
     commit('SET_VACANCIES', vacancies)
 

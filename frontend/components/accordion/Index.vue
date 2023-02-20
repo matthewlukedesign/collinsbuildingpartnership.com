@@ -59,9 +59,21 @@
               v-for="vacancy in vacancies"
               :key="vacancy._id"
             >
+              <SanityFile
+                :asset-id="vacancy.pdf.asset._ref"
+                v-if="vacancy.link == 'PDF' && vacancy.pdf"
+              >
+                <template #default="{ src }">
+                  <a
+                    class="absolute block w-full h-full"
+                    target="_blank"
+                    :href="src"
+                  ></a>
+                </template>
+              </SanityFile>
               <a
                 :href="vacancy.link"
-                v-if="vacancy.link"
+                v-if="vacancy.link && vacancy.link == 'url'"
                 target="_blank"
                 class="absolute block w-full h-full"
               ></a>

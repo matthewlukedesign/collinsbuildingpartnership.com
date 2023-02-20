@@ -16,7 +16,23 @@ export default {
     {
       name: "link",
       title: "Link",
-      type: "url",
+      type: "string",
+      options: {
+        layout: "dropdown",
+        list: ["PDF", "External"],
+      },
+    },
+    {
+      name: "url",
+      title: "URL",
+      type: "string",
+      hidden: ({ document }) => document?.link != "External",
+    },
+    {
+      name: "pdf",
+      title: "PDF",
+      type: "file",
+      hidden: ({ document }) => document?.link != "PDF",
     },
     {
       name: "order",
