@@ -1,7 +1,7 @@
 <template>
   <figure class="text-red">
     <svg
-      class="absolute right-0 top-0 object-contain object-top fill-current max-w-full max-h-full"
+      class="absolute top-0 right-0 object-contain object-top h-full max-w-full max-h-full fill-current lg:h-auto"
       viewBox="0 0 694 1020"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

@@ -1,7 +1,6 @@
 <template>
   <main
     class="relative flex flex-col h-full pb-0 tablet lg:h-auto lg:min-h-full lg:flex-row"
-    @click="SET_MOBILE_CLICKED()"
   >
     <div
       class="flex flex-col h-full p-3 lg:h-auto lg:min-h-full lg:p-2 lg:pr-0 lg:w-1/2"

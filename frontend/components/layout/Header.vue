@@ -10,8 +10,11 @@
   </header>
 </template>
 <script>
-import { mapMutations } from 'vuex'
+import { mapMutations, mapState } from 'vuex'
 export default {
+  computed: {
+    ...mapState(['mobileClicked']),
+  },
   methods: {
     ...mapMutations(['SET_ACTIVE', 'SET_SUB_ACTIVE']),
   },

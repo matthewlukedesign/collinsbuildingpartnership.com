@@ -24,6 +24,10 @@ export const mutations = {
   SET_MOBILE_CLICKED(state) {
     state.mobileClicked = true
   },
+  UNSET_MOBILE_CLICKED(state) {
+    console.log('test')
+    state.mobileClicked = false
+  },
   SET_PROJECTS(state, projects) {
     state.projects = projects
   },

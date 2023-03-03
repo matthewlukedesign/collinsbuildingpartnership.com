@@ -3,7 +3,9 @@
     class="transition-all duration-300 lg:opacity-100"
     :class="mobileClicked && !active ? 'delay-300' : 'opacity-0 '"
   >
-    <span class="text-2xl cursor-pointer lg:text-3xl text-red" @click="up"
+    <span
+      class="text-2xl cursor-pointer lg:text-3xl text-red"
+      @click=";[up, UNSET_MOBILE_CLICKED()]"
       >From the Ground Up</span
     >
     <nav
@@ -15,12 +17,13 @@
   </footer>
 </template>
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapMutations } from 'vuex'
 export default {
   computed: {
     ...mapState(['settings', 'active', 'subActive', 'mobileClicked']),
   },
   methods: {
+    ...mapMutations(['UNSET_MOBILE_CLICKED']),
     up() {
       window.scrollTo({ top: 0, behavior: 'smooth' })
     },
