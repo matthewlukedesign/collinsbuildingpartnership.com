@@ -4,7 +4,7 @@
     :class="mobileClicked && !active ? 'delay-300' : 'opacity-0 '"
   >
     <span
-      class="text-2xl cursor-pointer lg:text-3xl text-red"
+      class="text-2xl cursor-pointer md:text-3xl text-red"
       @click=";[up, UNSET_MOBILE_CLICKED()]"
       >From the Ground Up</span
     >
